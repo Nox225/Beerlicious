@@ -9,22 +9,23 @@ const AppProvider = ({ children }) => {
     const [searchTerm, setSearchTerm] = useState('a')
     const [beers, setBeers] = useState([])
 
-    const fetchBeer = async () => {
-        setLoading(true)
-        try {
-            const response = await fetch(`${url}${searchTerm}`)
-            const data = await response.json()
-            const newBeers = data.map((item) => {
-                return item
-            })
-            setBeers(newBeers)
-            setLoading(false)
-        } catch(error){
-            console.log(error)
-            setLoading(false)
-        }
-    }
     useEffect(() => {
+        const fetchBeer = async () => {
+            setLoading(true)
+            try {
+                const response = await fetch(`${url}${searchTerm}`)
+                const data = await response.json()
+                const newBeers = data.map((item) => {
+                    // const {id, name, tagline, description, image_url} = item;
+                    return item
+                })
+                setBeers(newBeers)
+                setLoading(false)
+            } catch(error){
+                console.log(error)
+                setLoading(false)
+            }
+        }
         fetchBeer()
     }, [searchTerm])
     
