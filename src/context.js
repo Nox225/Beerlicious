@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useCallback } from 'react'
 
 const url = 'https://api.punkapi.com/v2/beers?page=1&per_page=80&beer_name='
 
@@ -16,7 +15,6 @@ const AppProvider = ({ children }) => {
             const response = await fetch(`${url}${searchTerm}`)
             const data = await response.json()
             const newBeers = data.map((item) => {
-                const {id, name, tagline, description, image_url} = item;
                 return item
             })
             setBeers(newBeers)
