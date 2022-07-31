@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Loading from '../components/Loading'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 const url = 'https://api.punkapi.com/v2/beers/'
 
 export default function SingleBeer(){
@@ -54,7 +54,7 @@ export default function SingleBeer(){
                 <h2 className='beer-description-title'>Description</h2>
                 <h3 className='beer-description'>{description}</h3>
             </div>
-            <img src={image_url} className='beer-info-image' alt='No image was found'/>
+            <img src={image_url} className='beer-info-image' alt=''/>
         </section>
     )
 }
